@@ -1,0 +1,584 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Monda", sans-serif;
+  background: rgb(214, 211, 211);
+}
+@mixin fadeInEffect {
+  animation: 1s fadeIn;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  .ele:hover {
+    background-color: #123;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin correctAnswer {
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: green;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+@mixin NoCorrectAnswer {
+  position: absolute;
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: red;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+@mixin select_one {
+  position: absolute;
+  -webkit-animation: seconds 1s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+  animation: seconds 1s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  background: white;
+  border-radius: 5px;
+  color: orange;
+  font-weight: bold;
+
+  @-webkit-keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes seconds {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+.app {
+  .congratulatios_page {
+    background: url("./Images/congratulations_03.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    .clicked_feedback_message {
+      position: absolute;
+      left: 50%;
+      bottom: 75%; 
+      transform: translateX(-50%); 
+      border-radius: 5px;
+      width: 300px;
+      padding: 10px;
+      background: white;
+      color: green;
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .clicked_feedback_empty {
+      position: absolute;
+      left: 50%;
+      bottom: 75%; 
+      transform: translateX(-50%); 
+      border-radius: 5px;
+      width: 300px;
+      padding: 10px;
+      background: white;
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+
+      -webkit-animation: seconds 1s forwards;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-delay: 2s;
+      animation: seconds 1s forwards;
+      animation-iteration-count: 1;
+      animation-delay: 2s;
+      @-webkit-keyframes seconds {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes seconds {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+
+    .congratulations {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10rem auto;
+
+      .img_box {
+        margin: 0 1rem;
+        img {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 100%;
+          height: 100%;
+          z-index: 999;
+        }
+      }
+      .form_box {
+        width: 300px;
+        background: white;
+        height: 300px;
+        margin-top: 1rem;
+        .name_input {
+          background: rgb(121, 118, 118);
+          display: flex;
+          align-items: center;
+          margin: 1rem;
+          .fas {
+            display: block;
+            padding: 0 5px;
+            font-size: 20px;
+            color: white;
+          }
+          .first_input {
+            display: block;
+            width: 100%;
+            border: none;
+            resize: none;
+            font-size: 19px;
+            border-left: 1px solid rgba(248, 246, 246, 0.432);
+            margin: 5px 0;
+            background: rgb(121, 118, 118);
+            padding-left: 0.5rem;
+            color: white;
+            &::placeholder {
+              color: white;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .write_text {
+          background: rgb(121, 118, 118);
+          display: flex;
+          align-items: center;
+          margin: 1rem;
+          .fas {
+            color: white;
+            display: block;
+            padding: 0 5px;
+            font-size: 20px;
+          }
+          .second_input {
+            display: block;
+            width: 100%;
+            height: 150px;
+            border: none;
+            resize: none;
+            //font-size: 19px;
+            border-left: 1px solid rgba(248, 246, 246, 0.432);
+            margin: 10px 0;
+            line-height: inherit;
+            padding: 5px;
+            background: rgb(121, 118, 118);
+            color: white;
+            &::placeholder {
+              color: white;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .btn_box {
+          text-align: center;
+          margin-right: 1rem;
+          button {
+            margin-left: 1rem;
+            padding: 7px;
+            border: none;
+            background: rgb(25, 100, 25);
+            border-radius: 2px;
+            color: white;
+            cursor: pointer;
+            .fas {
+              color: white;
+              margin-left: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .home {
+    background: url("./Images/home.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    .question_something {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      width: 300px;
+      top: 50%;
+      left: 0;
+      right: 0;
+      h3 {
+        padding: 1rem;
+        background: white;
+        border-radius: 10px;
+        text-align: center;
+      }
+    }
+    .btn_start_exam {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      width: 240px;
+      top: 80%;
+      left: 0;
+      right: 0;
+      text-align: center;
+
+      a {
+        @include fadeInEffect();
+        text-decoration: none;
+        font-size: 17px;
+        color: white;
+        background: green;
+        padding: 12px;
+        border-radius: 5px;
+      }
+    }
+    .home_image {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      .userName_logOut {
+        margin-top: 1rem;
+        align-items: center;
+        border-radius: 5px;
+        height: 55px;
+        padding: 5px;
+        .company {
+          font-size: 35px;
+          .userName {
+            font-size: 40px;
+            font-weight: bold;
+          }
+        }
+        a {
+          margin-left: 1rem;
+          color: red;
+        }
+      }
+    }
+  }
+  .login_register_form {
+    position: absolute;
+    background: url("./Images/login_register_image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    .error_box {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      margin: 25vh auto;
+      color: red;
+      .error_message_log_reg {
+        @include fadeInEffect();
+        .hide {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .form_box_loginReg {
+    width: 300px;
+    margin: 30vh auto;
+    span {
+      display: block;
+      text-align: center;
+    }
+
+    form {
+      input {
+        width: 300px;
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      
+    }
+    .loginRegisterBtn {
+      background: rgba(0, 128, 0, 0.685);
+      text-decoration: none;
+      align-items: center;
+      margin-top: 0.5rem;
+      padding: 5px;
+      border-radius: 4px;
+      color: white;
+    }
+    .loginRegisterBtnForm {
+      background: rgba(105, 100, 100, 0.596);
+      text-decoration: none;
+      align-items: center;
+      margin-top: 0.5rem;
+      padding: 5px;
+      border-radius: 4px;
+      color: white;
+    }
+  }
+
+  .exam_page {
+    background: url("./Images/exam3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    // .correct_answer {
+    //   position: absolute;
+    //   top: 7rem;
+    //   left: 30%;
+    //   right: 10%;
+    //   z-index: 5;
+    //   h4 {
+    //     text-align: center;
+    //   }
+    //   @include correctAnswer();
+    // }
+    a {
+      padding: 0.5rem;
+      margin: 1rem auto;
+      display: block;
+      text-decoration: none;
+      color: black;
+      width: 110px;
+      border: 1px solid black;
+    }
+    
+
+    .exam_box {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      top: 25%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      .senior_img {
+        padding: 0;
+        height: 315px;
+        margin-top: 1rem;
+        position: relative;
+        span {
+          position: absolute;
+          bottom: 45px;
+          left: 38%;
+          text-align: center;
+          display: block;
+          font-size: 22px;
+        }
+        .image {
+          background: url("./Images/exam.jpg");
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 270px;
+          height: 270px;
+          border-radius: 500px;
+          margin-top: 1rem;
+        }
+        .correct_answer {
+          position: absolute;
+          top: 7rem;
+          left: 30%;
+          right: 10%;
+          z-index: 5;
+          h4 {
+            text-align: center;
+          }
+          @include correctAnswer();
+        }
+        .NoCorrect_answer {
+          top: 7rem;
+          left: 30%;
+          right: 10%;
+          position: absolute;
+          z-index: 5;
+          h4 {
+            text-align: center;
+          }
+          @include NoCorrectAnswer();
+        }
+        .select_one {
+          top: 7rem;
+          left: 10%;
+          right: 10%;
+          position: absolute;
+          z-index: 5;
+          h4 {
+            text-align: center;
+          }
+          @include select_one();
+        }
+      }
+      .questions_box {
+        background: rgb(214, 211, 211);
+        border-radius: 5px;
+        height: auto;
+        padding: 1rem;
+        width: 500px;
+        margin-top: 1rem;
+
+        .countCorrentAnswers {
+          margin-top: 2rem;
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .questions_text {
+          display: block;
+          //text-align: center;
+          margin: 1rem;
+          margin-bottom: 2rem;
+          border-bottom: 1px solid grey;
+        }
+        span {
+          margin-left: 1rem;
+        }
+
+        .questions {
+          display: flex;
+          align-items: center;
+          height: auto;
+          margin-left: 1rem;
+          .radio_type {
+            align-items: center;
+            input {
+              cursor: pointer;
+            }
+          }
+          h4 {
+            margin: 10px 0 10px 10px;
+          }
+        }
+        button {
+          display: block;
+          padding: 5px 15px;
+          margin: 0.5rem auto;
+          cursor: pointer;
+          border: none;
+          border-radius: 5px;
+          background: rgba(19, 184, 19, 0.966);
+          font-size: 19px;
+        }
+
+        .pulse:hover,
+        .pulse:focus {
+          animation: pulse 1s;
+          box-shadow: 0 0 0 2em rgba(#fff, 0);
+        }
+
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 var(--hover);
+          }
+        }
+
+        $colors: (
+          pulse: #73ff00
+        );
+
+        @each $button, $color in $colors {
+          .#{$button} {
+            --color: #{$color};
+            --hover: #{adjust-hue($color, 45deg)};
+          }
+        }
+      }
+    }
+  }
+}
